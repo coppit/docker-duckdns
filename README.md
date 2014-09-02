@@ -11,7 +11,8 @@ This docker image is available as a [trusted build on the docker index](https://
 
 Create a config file /config/dir/path/duck.conf with the following:
 
-```DOMAINS=yourdomain
+```
+DOMAINS=yourdomain
 TOKEN=yourtoken
 INTERVAL=5m
 ```
