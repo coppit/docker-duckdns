@@ -7,7 +7,9 @@ do
     exit 1
   fi
 
-  . /config/duck.conf
+  tr -d '\r' < /config/duck.conf > /tmp/duck.conf
+
+  . /tmp/duck.conf
 
   if [ -z "$INTERVAL" ]; then
     echo "INTERVAL must be defined in duck.conf"
