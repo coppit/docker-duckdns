@@ -7,7 +7,7 @@
 
 FROM phusion/baseimage:0.9.11
 
-MAINTAINER coppit
+MAINTAINER David Coppit <david@coppit.org>
 
 VOLUME ["/config"]
 
