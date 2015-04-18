@@ -25,4 +25,4 @@
   fi
 
   echo url="https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" | curl -s -k -K -
-  echo "  "$(date -u)
+  echo "  "$(date)
