@@ -13,4 +13,4 @@ VOLUME ["/config"]
 
 ADD duck.sh /root/duckdns/duck.sh
 
-CMD /bin/bash -c '/root/duckdns/duck.sh >>/config/duck.log 2>&1'
+CMD /bin/bash -c '/root/duckdns/duck.sh >/config/duck.log 2>&1'
