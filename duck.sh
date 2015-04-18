@@ -9,11 +9,6 @@
 
   . /tmp/duck.conf
 
-  if [ -z "$INTERVAL" ]; then
-    echo "INTERVAL must be defined in duck.conf"
-    exit 1
-  fi
-
   if [ -z "$DOMAINS" ]; then
     echo "DOMAINS must be defined in duck.conf"
     exit 1
