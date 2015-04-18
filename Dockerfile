@@ -6,7 +6,7 @@
 
 FROM phusion/baseimage:0.9.11
 
-MAINTAINER aptalca (based on original docker by David Coppit <david@coppit.org>)
+MAINTAINER David Coppit <david@coppit.org>
 
 VOLUME ["/config"]
 
