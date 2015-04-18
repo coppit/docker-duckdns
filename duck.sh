@@ -1,7 +1,5 @@
 #!/bin/bash
 
-while true
-do
   if [ ! -f /config/duck.conf ]; then
     echo "Could not find /config/duck.conf"
     exit 1
@@ -27,6 +25,4 @@ do
   fi
 
   echo url="https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" | curl -s -k -K -
-  echo $(date -u)
-
-done
+  echo "  "$(date -u)
