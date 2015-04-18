@@ -27,7 +27,6 @@ do
   fi
 
   echo url="https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" | curl -s -k -K -
-  # Append a newline to the "OK" output by curl
   echo $(date -u)
 
 done
