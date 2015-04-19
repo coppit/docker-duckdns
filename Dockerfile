@@ -13,6 +13,9 @@ VOLUME ["/config"]
 # Add dynamic dns script
 ADD duck.sh /root/duckdns/duck.sh
 
+# Create template config file
+ADD duck.conf /config/duck.conf
+
 # Add our crontab file
 ADD duckcron.conf /root/duckdns/duckcron.conf
 
