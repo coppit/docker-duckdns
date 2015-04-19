@@ -1,7 +1,6 @@
 # The config file is named duck.conf, and has the format:
 # DOMAINS=<your domain>
 # TOKEN=<your token>
-# TIMEZONE=<your timezone>
 
 # Output will be written to /config/duck.log
 
