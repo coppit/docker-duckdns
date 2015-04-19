@@ -14,7 +14,10 @@ VOLUME ["/config"]
 ADD duck.sh /root/duckdns/duck.sh
 
 # Create template config file
-ADD duck.conf /config/duck.conf
+ADD duck.conf /root/duckdns/duck.conf
+
+# Check if conf file already exits, if not copy template
+RUN confcopy.sh
 
 # Add our crontab file
 ADD duckcron.conf /root/duckdns/duckcron.conf
