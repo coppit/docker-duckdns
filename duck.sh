@@ -19,5 +19,6 @@
     exit 1
   fi
   
+  TZ="$TIMEZONE"
   echo url="https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" | curl -s -k -K -
-  echo "  "$(TZ='$TIMEZONE' date)
+  echo "  "$(date)
