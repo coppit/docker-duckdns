@@ -19,7 +19,7 @@
     exit 1
   fi
   
-  ENV['TZ'] = '$TIMEZONE'
+  export TZ='$TIMEZONE'
   
   echo url="https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" | curl -s -k -K -
   echo "  "$(date)
