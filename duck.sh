@@ -7,7 +7,7 @@
   if [ -z "$DOMAINS" ]; then
     echo "DOMAINS must be defined in duck.conf"
     exit 1
-  elif [ $DOMAINS = "yourdomain" ]; then
+  elif [ "$DOMAINS" = "yourdomain" ]; then
     echo "Please enter your domain in duck.conf"
     exit 1
   fi
@@ -15,7 +15,7 @@
   if [ -z "$TOKEN" ]; then
     echo "TOKEN must be defined in duck.conf"
     exit 1
-  elif [ $TOKEN = "yourtoken" ]; then
+  elif [ "$TOKEN" = "yourtoken" ]; then
     echo "Please enter your token in duck.conf"
     exit 1
   fi
