@@ -4,4 +4,5 @@
   if [ ! -f /config/duck.conf ]; then
     echo "Using default config file duck.conf"
     cp /root/duckdns/duck.conf /config/duck.conf
+    chmod a+w /config/duck.conf
   fi
