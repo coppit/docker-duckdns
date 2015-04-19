@@ -1,10 +1,5 @@
 #!/bin/bash
 
-  if [ ! -f /config/duck.conf ]; then
-    echo "Could not find /config/duck.conf"
-    exit 1
-  fi
-
   tr -d '\r' < /config/duck.conf > /tmp/duck.conf
 
   . /tmp/duck.conf
