@@ -1,3 +1,6 @@
+THIS IS MY TEST DOCKER. PLEASE USE THE OFFICIAL ONE AT https://registry.hub.docker.com/u/coppit/duckdns/
+
+
 docker-duckdns
 ==============
 
