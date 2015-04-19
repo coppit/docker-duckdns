@@ -18,6 +18,7 @@ ADD duck.conf /root/duckdns/duck.conf
 
 # Check if conf file already exits, if not copy template
 ADD confcopy.sh /root/duckdns/confcopy.sh
+RUN chmod +x /root/duckdns/confcopy.sh
 RUN /root/duckdns/confcopy.sh
 
 # Add our crontab file
