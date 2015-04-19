@@ -6,3 +6,8 @@
     cp /root/duckdns/duck.conf /config/duck.conf
     chmod a+w /config/duck.conf
   fi
+  
+  #Get docker env timezone and set system timezone
+  echo $TZ > /etc/timezone
+  export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive
+  dpkg-reconfigure tzdata
