@@ -10,11 +10,12 @@ your domain.duckdns.org DNS alias up-to-date as your home IP changes. the script
 Usage
 -----
 
-Create a config file /path/to/duckdns/duck.conf with the following:
+Modify the config file /path/to/duckdns/duck.conf with the following:
 
 ```
 DOMAINS=yourdomain
 TOKEN=yourtoken
+TIMEZONE=yourtimezone
 ```
 
 
