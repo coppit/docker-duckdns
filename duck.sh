@@ -21,7 +21,7 @@
   fi
   
   RESPONSE=`curl -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip="`
-  if [ "$RESPONSE" = "OK"]; then
+  if [ "$RESPONSE" = "OK" ]; then
   echo "Your IP was updated at "$(date)
   else
   echo "Something went wrong, check your settings  "$(date)
