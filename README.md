@@ -15,7 +15,6 @@ Modify the config file /path/to/duckdns/duck.conf with the following:
 ```
 DOMAINS=yourdomain
 TOKEN=yourtoken
-TIMEZONE=yourtimezone
 ```
 
 
