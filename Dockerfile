@@ -13,6 +13,7 @@ VOLUME ["/config"]
 
 # Add dynamic dns script
 ADD duck.sh /root/duckdns/duck.sh
+RUN chmod +x /root/duckdns/duck.sh
 
 # Create template config file
 ADD duck.conf /root/duckdns/duck.conf
