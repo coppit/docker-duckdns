@@ -6,7 +6,7 @@
 
 FROM phusion/baseimage:0.9.11
 
-MAINTAINER aptalca
+MAINTAINER David Coppit <david@coppit.org>
 
 VOLUME ["/config"]
 
