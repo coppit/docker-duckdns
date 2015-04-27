@@ -1,9 +1,3 @@
-# The config file is named duck.conf, and has the format:
-# DOMAINS=<your domain>
-# TOKEN=<your token>
-
-# Output will be written to /config/duck.log
-
 FROM phusion/baseimage:0.9.11
 
 MAINTAINER David Coppit <david@coppit.org>
