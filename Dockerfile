@@ -11,16 +11,11 @@ RUN chmod +x /root/duckdns/duck.sh
 # Create template config file
 ADD duck.conf /root/duckdns/duck.conf
 
-# Check if conf file already exits, if not copy template
-RUN mkdir -p /etc/my_init.d
-ADD firstrun.sh /etc/my_init.d/firstrun.sh
-RUN chmod +x /etc/my_init.d/firstrun.sh
-
 # Add our crontab file
 ADD duckcron.conf /root/duckdns/duckcron.conf
 
 # Incorporate the crontab file
 RUN crontab /root/duckdns/duckcron.conf
 
-# Start cron
-RUN cron
+# Run duck.sh immediately when the container starts, and start cron for subsequent runs
+CMD /root/duckdns/duck.sh && cron && sleep infinity
