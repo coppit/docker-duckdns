@@ -1,4 +1,3 @@
-
 docker-duckdns
 ==============
 
@@ -17,4 +16,4 @@ Run:
 When run for the first time, a file named duck.conf will be created in the config dir, and the container will exit. Edit
 this file, adding your domain and token. Then rerun the command.
 
-To check the status, look in duck.log in your config directory.
+To check the status, run `docker logs duckdns`.

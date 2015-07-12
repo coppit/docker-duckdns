@@ -28,9 +28,25 @@ elif [ "$TOKEN" = "yourtoken" ]; then
   exit 1
 fi
 
-RESPONSE=`curl -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip="`
-if [ "$RESPONSE" = "OK" ]; then
-  echo "Your IP was last updated at "$(date)
-else
-  echo "Something went wrong, check your settings  "$(date)
-fi
+#-----------------------------------------------------------------------------------------------------------------------
+
+function ts {
+  echo [`date '+%b %d %X'`]
+}
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+while true
+do
+  RESPONSE=$(curl -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=")
+
+  if [ "$RESPONSE" = "OK" ]
+  then
+    echo "$(ts) DuckDNS successfully called. Result was \"$RESPONSE\"."
+  else
+    echo "$(ts) Something went wrong. Check your settings. Result was \"$RESPONSE\"."
+    exit 2
+  fi
+
+  sleep 300
+done
