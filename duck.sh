@@ -38,7 +38,7 @@ function ts {
 
 while true
 do
-  RESPONSE=$(curl -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=")
+  RESPONSE=$(curl -S -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" 2>&1)
 
   if [ "$RESPONSE" = "OK" ]
   then
