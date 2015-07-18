@@ -43,6 +43,9 @@ do
   if [ "$RESPONSE" = "OK" ]
   then
     echo "$(ts) DuckDNS successfully called. Result was \"$RESPONSE\"."
+  elif [[ "$RESPONSE" == "" ]]
+  then
+    echo "$(ts) Something went wrong. Result was empty. Trying again in 5 minutes."
   else
     echo "$(ts) Something went wrong. Check your settings. Result was \"$RESPONSE\"."
     exit 2
