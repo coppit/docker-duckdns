@@ -43,12 +43,13 @@ do
   if [ "$RESPONSE" = "OK" ]
   then
     echo "$(ts) DuckDNS successfully called. Result was \"$RESPONSE\"."
-  elif [[ "$RESPONSE" == "" ]]
+  elif [[ "$RESPONSE" == "KO" ]]
   then
-    echo "$(ts) Something went wrong. Result was empty. Trying again in 5 minutes."
-  else
-    echo "$(ts) Something went wrong. Check your settings. Result was \"$RESPONSE\"."
+    echo "$(ts) DuckDNS reported an error. Check your settings. Result was \"$RESPONSE\"."
     exit 2
+  else
+    # For example: "curl: (6) Could not resolve host: www.duckdns.org". Also sometimes the response is ""
+    echo "$(ts) Something went wrong. Result was \"$RESPONSE\". Trying again in 5 minutes."
   fi
 
   sleep 300
