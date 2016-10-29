@@ -61,16 +61,21 @@ function ts {
 }
 
 #-----------------------------------------------------------------------------------------------------------------------
+sleep 2
 
 while true
 do
   if [ "$IPV6" = "yes" ]; then
-    ipaddr=`ifconfig | grep inet6 | grep -i global | awk -F " " '{print $3}'`
+    ip6=`ifconfig | grep inet6 | grep -i global | awk -F " " '{print $3}' | awk -F "/" '{print $1}'`
+    ip4=
+    echo "IP address is ${ip6}"
   else
-    ipaddr=
+    echo "Will detect ipv4 automatically"
+    ip6=
+    ip4=
   fi
 
-  RESPONSE=$(curl -S -s "${endpoint}?domains=$DOMAINS&token=$TOKEN&ip=${ipaddr}" 2>&1)
+  RESPONSE=$(curl -S -s "${endpoint}?domains=$DOMAINS&token=$TOKEN&ip=${ip4}&ipv6=${ip6}" 2>&1)
 
   if [ "$RESPONSE" = "OK" ]
   then
