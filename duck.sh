@@ -32,6 +32,15 @@ if [ -z "$INTERVAL" ]; then
   INTERVAL='30m'
 fi
 
+if [ -z "$IPV6" ]; then
+  IPV6='no'
+elif [ "$IPV6" = "yes" ]; then
+  echo "Using IPV6 for updates"
+else
+  echo "For IPv6, please use IPV6=yes in duck.conf"
+  IPV6='no'
+fi
+
 if [[ ! "$INTERVAL" =~ ^[0-9]+[mhd]$ ]]; then
   echo "INTERVAL must be a number followed by m, h, or d. Example: 5m"
   exit 1
@@ -42,6 +51,9 @@ if [[ "${INTERVAL: -1}" == 'm' && "${INTERVAL:0:-1}" -lt 5 ]]; then
   exit 1
 fi
 
+#https://www.duckdns.org/update?domains={YOURVALUE}&token={YOURVALUE}[&ip={YOURVALUE}][&ipv6={YOURVALUE}][&verbose=true][&clear=true]
+endpoint=https://www.duckdns.org/update
+
 #-----------------------------------------------------------------------------------------------------------------------
 
 function ts {
@@ -49,10 +61,21 @@ function ts {
 }
 
 #-----------------------------------------------------------------------------------------------------------------------
+sleep 2
 
 while true
 do
-  RESPONSE=$(curl -S -s "https://www.duckdns.org/update?domains=$DOMAINS&token=$TOKEN&ip=" 2>&1)
+  if [ "$IPV6" = "yes" ]; then
+    ip6=`ifconfig | grep inet6 | grep -i global | awk -F " " '{print $3}' | awk -F "/" '{print $1}'`
+    ip4=
+    echo "IP address is ${ip6}"
+  else
+    echo "Will detect ipv4 automatically"
+    ip6=
+    ip4=
+  fi
+
+  RESPONSE=$(curl -S -s "${endpoint}?domains=$DOMAINS&token=$TOKEN&ip=${ip4}&ipv6=${ip6}" 2>&1)
 
   if [ "$RESPONSE" = "OK" ]
   then
