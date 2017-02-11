@@ -7,13 +7,15 @@ Both IPv4 and IPv6 are supported.
 
 ## Usage
 
-This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/davebv/docker-duckdns/).
+This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/coppit/duckdns/).
 
 Run:
 
-`sudo docker run --name=duckdns -d -v /etc/localtime:/etc/localtime -v /config/dir/path:/config davebv/docker-duckdns`
+`sudo docker run --name=duckdns -d -v /etc/localtime:/etc/localtime -v /config/dir/path:/config coppit/duckdns`
 
 When run for the first time, a file named duck.conf will be created in the config dir, and the container will exit. Edit this file, adding your domain and token. Then rerun the command.
+
+If you prefer to set environment variables for your docker container instead of using the configuration file, simply comment out the vars in the duck.conf. Note that the file needs to exist, or the container will recreate it.
 
 To check the status, run `docker logs duckdns`.
 
@@ -23,4 +25,5 @@ By default IPv6 is not enabled. In order to enable it, uncomment the line in duc
 `IPV6=yes`
 
 ## Credits
-Image updated from https://github.com/coppit/docker-duckdns
+
+IPv6 support by [davebv](https://github.com/davebv).
