@@ -1,7 +1,7 @@
 # docker-duckdns
 
 
-This is a simple Docker container for running the [Duck DNS](http://duckdns.org) dynamic DNS update script. It will keep your domain.duckdns.org DNS alias up-to-date as your home IP changes. The script runs every 5 minutes.
+This is a simple Docker container for running the [Duck DNS](http://duckdns.org) dynamic DNS update script. It will keep your domain.duckdns.org DNS alias up-to-date as your home IP changes. The script runs every 30 minutes.
 
 Both IPv4 and IPv6 are supported.
 
