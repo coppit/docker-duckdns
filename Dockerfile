@@ -7,7 +7,7 @@ VOLUME ["/config"]
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-RUN \
+RUN true && \
 
 DEBIAN_FRONTEND=noninteractive && \
 
