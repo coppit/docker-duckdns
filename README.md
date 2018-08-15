@@ -9,20 +9,27 @@ Both IPv4 and IPv6 are supported.
 
 This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/coppit/duckdns/).
 
-Run:
+There are two modes of running this container. The first is with environment variables:
+
+`sudo docker run --name=duckdns -d -v /etc/localtime:/etc/localtime -v /config/dir/path:/config -e DOMAINS=<domains> -e TOKEN=<token> -e INTERVAL=<interval> -e IPV6=<yes or no> coppit/duckdns`
+
+The second mode is with a config file. To create a template config file, run:
 
 `sudo docker run --name=duckdns -d -v /etc/localtime:/etc/localtime -v /config/dir/path:/config coppit/duckdns`
 
-When run for the first time, a file named duck.conf will be created in the config dir, and the container will exit. Edit this file, adding your domain and token. Then rerun the command.
-
-If you prefer to set environment variables for your docker container instead of using the configuration file, simply comment out the vars in the duck.conf. Note that the file needs to exist, or the container will recreate it.
+When run for the first time, a file named duck.conf will be created in the config dir, and the container will exit. Edit this file, setting the required and optional settings. Then rerun the command.
 
 To check the status, run `docker logs duckdns`.
 
-## IPv6
+## Required Settings
 
-By default IPv6 is not enabled. In order to enable it, uncomment the line in duck.conf to enable IPv6
-`IPV6=yes`
+The domains to update and security token are required. Domains should be comma-separated.
+
+## Optional Settings
+
+The update interval should be a number followed by "d", "h", or "m", indicating days, hours, and minutes, respectively. The minimum update interval is 5 minutes.
+
+By default IPv6 is not enabled. Set IPV6 to "yes" to enable it.
 
 ## Credits
 
